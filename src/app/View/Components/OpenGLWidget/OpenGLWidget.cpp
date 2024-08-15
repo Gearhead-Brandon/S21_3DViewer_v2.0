@@ -11,7 +11,8 @@ namespace s21 {
  */
 OpenGLWidget::OpenGLWidget(IResourceProvider &resourceProvider)
     : QOpenGLWidget(nullptr), resourceProvider_(resourceProvider),
-      renderStrategy_(RenderFactory().createRenderStrategy(RenderingType::NORMAL)),
+      renderStrategy_(
+          RenderFactory().createRenderStrategy(RenderingType::NORMAL)),
       shaderProgram_(0), displayAxes_(Choice::Yes),
       renderingType_(RenderingType::NORMAL), xRot_(0.0f), yRot_(0.0f),
       scaleMouse_(1.0f) {}

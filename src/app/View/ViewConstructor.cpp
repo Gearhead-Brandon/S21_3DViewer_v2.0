@@ -227,7 +227,7 @@ void View::createDisplayAxesBox(QGridLayout *grid) {
   QObject::connect(checkBox, &QCheckBox::stateChanged, &openGLWidget_,
                    &OpenGLWidget::setDisplayAxes);
 
-  QPushButton *button = new QPushButton(tr("CPU"));
+  QPushButton *button = new QPushButton(tr("NORMAL"));
   button->setStyleSheet(RenderingTypeBtnCpuStyle);
   button->setFixedSize(130, 27);
   button->setToolTip("ВЫбор типа отрисовки");
@@ -236,7 +236,7 @@ void View::createDisplayAxesBox(QGridLayout *grid) {
           [&openGLWidget = openGLWidget_, &button = *button](bool) {
             RenderingType type = openGLWidget.getRenderingType();
             (type == RenderingType::NORMAL) ? button.setText("GPU")
-                                         : button.setText("NORMAL");
+                                            : button.setText("NORMAL");
             (type == RenderingType::NORMAL)
                 ? button.setStyleSheet(RenderingTypeBtnGpuStyle)
                 : button.setStyleSheet(RenderingTypeBtnCpuStyle);
@@ -260,17 +260,17 @@ void View::createDisplayAxesBox(QGridLayout *grid) {
  */
 void View::createMoveScaleBox(QGridLayout *grid) {
   SliderData data = {-20, 20, 0};
-  QHBoxLayout *xMoveBox = moveScaleBoxFactory("X", data, AffineOps::Moving,
+  QHBoxLayout *xMoveBox = moveScaleBoxFactory("mX", data, AffineOps::Moving,
                                               Axes::X, 0.1, &lastMoveValue_.x);
   grid->addLayout(xMoveBox, 2, 0);
 
   data = {-20, 20, 0};
-  QHBoxLayout *yMoveBox = moveScaleBoxFactory("Y", data, AffineOps::Moving,
+  QHBoxLayout *yMoveBox = moveScaleBoxFactory("mY", data, AffineOps::Moving,
                                               Axes::Y, 0.2, &lastMoveValue_.y);
   grid->addLayout(yMoveBox, 3, 0);
 
   data = {-20, 20, 0};
-  QHBoxLayout *zMoveBox = moveScaleBoxFactory("Z", data, AffineOps::Moving,
+  QHBoxLayout *zMoveBox = moveScaleBoxFactory("mZ", data, AffineOps::Moving,
                                               Axes::Z, 0.1, &lastMoveValue_.z);
   grid->addLayout(zMoveBox, 4, 0);
 

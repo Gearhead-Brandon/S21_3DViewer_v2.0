@@ -15,7 +15,7 @@ namespace s21 {
  */
 IRenderStrategy *RenderFactory::createRenderStrategy(RenderingType type) {
   switch (type) {
-  case RenderingType::CPU:
+  case RenderingType::NORMAL:
     return new CpuRenderStrategy();
   case RenderingType::GPU:
     return new GpuRenderStrategy();

@@ -42,8 +42,6 @@ FacadeOpResult FileReader::readScene(Figure &figure, const std::string &path) {
       int count = 0, first_index = 0;
 
       while (std::getline(iss, token, ' ')) {
-        // if (!token.empty() && token.find_first_of(occurrences) !=
-        // std::string::npos) {
         if (token.find_first_of(occurrences) != std::string::npos) {
           readFacet(figure, &first_index, count, std::stoi(token));
           count++;
@@ -53,8 +51,6 @@ FacadeOpResult FileReader::readScene(Figure &figure, const std::string &path) {
       figure.getIndices().push_back(first_index);
     }
   }
-
-  file.close();
 
   Normalization(figure, normParams);
 
@@ -84,8 +80,6 @@ FacadeOpResult FileReader::fileValidation(Figure &figure,
     if (line[0] == 'f')
       countF++;
   }
-
-  file.close();
 
   if (countV < 1 || countF < 1)
     return FacadeOpResult(false, "Is invalid obj file");
@@ -174,9 +168,6 @@ void FileReader::readVertex(Figure &figure, const char *line,
   sscanf(line, "%f %f %f", &x, &y, &z);
 
   vertices.insert(vertices.end(), {x, y, z});
-  // vertices.push_back(x);
-  // vertices.push_back(y);
-  // vertices.push_back(z);
 
   readMinMax(figure, normParams);
 }
@@ -196,11 +187,13 @@ void FileReader::readMinMax(Figure &figure, NormParams &normParams) {
   Point<float> &min = normParams.min;
 
   if (size / 3 == 1) {
-    max = Point(x, y, z);
-    min = Point(x, y, z);
+    max = Point<float>{x, y, z};
+    min = Point<float>{x, y, z};
   } else {
-    max = Point(std::max(x, max.x), std::max(y, max.y), std::max(z, max.z));
-    min = Point(std::min(x, min.x), std::min(y, min.y), std::min(z, min.z));
+    max = Point<float>{std::max(x, max.x), std::max(y, max.y),
+                       std::max(z, max.z)};
+    min = Point<float>{std::min(x, min.x), std::min(y, min.y),
+                       std::min(z, min.z)};
   }
 }
 } // namespace s21

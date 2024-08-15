@@ -64,4 +64,4 @@ clean:
 	@rm -rf ./$(DIR_TESTS_BUILD)/*
 	@rm -rf ./$(DIR_TEST)/tests $(DIR_REPORT)
 
-rebuild: clean install
+rebuild: clean uninstall install
