@@ -50,7 +50,7 @@ peer: gcov_report
 	@open $(DIR_REPORT)/$(HTML_REPORT)
 
 dvi:
-#   doxygen ./$(DOC)/Doxyfile
+#   doxygen ./doc/Doxyfile
 #	@google-chrome ./$(DOC)/index.html
 
 dist:
