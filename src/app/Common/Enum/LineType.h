@@ -12,9 +12,9 @@ namespace s21 {
  * @brief Enum of LineType
  */
 enum class LineType : bool {
-  Solid,  ///< Solid line
-  Stipple ///< Dotted line
+  Solid,   ///< Solid line
+  Stipple  ///< Dotted line
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

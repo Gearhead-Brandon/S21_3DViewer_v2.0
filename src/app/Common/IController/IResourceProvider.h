@@ -6,9 +6,10 @@
 #ifndef IRESOURCE_PROVIDERR_H
 #define IRESOURCE_PROVIDERR_H
 
+#include <vector>
+
 #include "../Settings/SettingsPackage/SettingsPackage.h"
 #include "../Structures/Point.h"
-#include <vector>
 
 namespace s21 {
 
@@ -16,7 +17,7 @@ namespace s21 {
  * @brief The interface class IResourceProvider is used to get resources
  */
 class IResourceProvider {
-public:
+ public:
   /**
    * @brief Virtual destructor
    */
@@ -59,6 +60,6 @@ public:
    */
   virtual const SettingsPackage &getSettingsPackage() const = 0;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

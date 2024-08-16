@@ -4,6 +4,7 @@
  */
 
 #include "AffineBuilder.h"
+
 #include "../Move/Move.h"
 #include "../Rotate/Rotate.h"
 #include "../Scale/Scale.h"
@@ -16,18 +17,18 @@ namespace s21 {
  * @returns ITransformationStrategy*
  */
 auto AffineBuilder::buildTransformStrategy(AffineOps op)
-    -> ITransformationStrategy * {
+    -> ITransformationStrategy* {
   switch (op) {
-  case AffineOps::Moving:
-    return new MoveStrategy();
-  case AffineOps::Rotation:
-    return new RotateStrategy();
-  case AffineOps::Scaling:
-    return new ScaleStrategy();
-  default:
-    break;
+    case AffineOps::Moving:
+      return new MoveStrategy();
+    case AffineOps::Rotation:
+      return new RotateStrategy();
+    case AffineOps::Scaling:
+      return new ScaleStrategy();
+    default:
+      break;
   }
 
   return nullptr;
 }
-} // namespace s21
+}  // namespace s21

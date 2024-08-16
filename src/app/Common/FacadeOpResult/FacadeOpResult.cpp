@@ -26,4 +26,4 @@ bool FacadeOpResult::IsSuccess() { return isSuccess_; }
  * @return Operation result message
  */
 std::string FacadeOpResult::getErrorMessage() { return errorMessage_; }
-} // namespace s21
+}  // namespace s21

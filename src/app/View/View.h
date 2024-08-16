@@ -12,7 +12,6 @@
 
 #include "../Common/Structures/RGB/RGB.h"
 #include "../Controller/Controller.h"
-
 #include "./Components/ColorPicker/ColorPicker.h"
 #include "./Components/OpenGLWidget/OpenGLWidget.h"
 #include "./Components/Style/StylesTables.h"
@@ -51,7 +50,7 @@ class View : public QMainWindow {
   //! Last values of the sliders for rotation
   Point<int> lastRotationValue_;
 
-public:
+ public:
   /**
    * @brief Constructor
    * @param controller
@@ -63,7 +62,7 @@ public:
    */
   ~View() = default;
 
-private:
+ private:
   /**
    * @brief Painting background
    */
@@ -229,6 +228,6 @@ private:
    */
   void showErrorMessage(const char *message);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

@@ -32,11 +32,11 @@
 #include "qgifimage.h"
 
 class QGifFrameInfoData {
-public:
+ public:
   QGifFrameInfoData() : delayTime(-1), interlace(false) {}
   QImage image;
-  QPoint offset; // offset info of QImage will lost when convert from One
-                 // format to another.
+  QPoint offset;  // offset info of QImage will lost when convert from One
+                  // format to another.
   int delayTime;
   bool interlace;
   QColor transparentColor;
@@ -44,7 +44,7 @@ public:
 
 class QGifImagePrivate {
   Q_DECLARE_PUBLIC(QGifImage)
-public:
+ public:
   QGifImagePrivate(QGifImage *p);
   ~QGifImagePrivate();
   bool load(QIODevice *device);
@@ -67,4 +67,4 @@ public:
   QGifImage *q_ptr;
 };
 
-#endif // QGIFIMAGE_P_H
+#endif  // QGIFIMAGE_P_H

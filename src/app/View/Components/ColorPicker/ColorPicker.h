@@ -6,8 +6,9 @@
 #ifndef COLORPICKER_H
 #define COLORPICKER_H
 
-#include "../../../Common/Structures/RGB/RGB.h"
 #include <QtWidgets>
+
+#include "../../../Common/Structures/RGB/RGB.h"
 
 namespace s21 {
 
@@ -17,7 +18,7 @@ namespace s21 {
 class ColorPicker : public QWidget {
   Q_OBJECT
 
-signals:
+ signals:
 
   /**
    * @brief Signal emitted when color is picked
@@ -28,7 +29,7 @@ signals:
    */
   void colorPickerClicked(RGB color);
 
-public:
+ public:
   /**
    * @brief Constructor
    * @param parent The parent widget
@@ -36,7 +37,7 @@ public:
    */
   ColorPicker(QWidget *parent);
 
-private:
+ private:
   /**
    * @brief Mouse press event
    * @param event Press mouse event
@@ -77,6 +78,6 @@ private:
    */
   QLinearGradient createRainbowGradient();
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

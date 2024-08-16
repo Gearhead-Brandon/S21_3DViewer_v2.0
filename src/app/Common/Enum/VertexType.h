@@ -13,6 +13,6 @@ namespace s21 {
  * @brief Enumeration of vertex types used in 3D models
  */
 enum class VertexType : int { Square, Circle, None };
-} // namespace s21
+}  // namespace s21
 
 #endif

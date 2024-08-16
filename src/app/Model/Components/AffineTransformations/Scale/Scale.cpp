@@ -32,4 +32,4 @@ void ScaleStrategy::executeTransformation(std::vector<float> &vertices, Axes,
     vertices[i + 2] += center.z;
   }
 }
-} // namespace s21
+}  // namespace s21

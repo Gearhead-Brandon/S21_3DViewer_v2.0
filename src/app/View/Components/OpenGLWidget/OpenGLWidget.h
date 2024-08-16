@@ -6,17 +6,7 @@
 #ifndef OPENGLWIDGET_H
 #define OPENGLWIDGET_H
 
-#include "../../../Common/IController/IResourceProvider.h"
-#include "../../../Common/Observer/IObserver.h"
-
-#include "./RenderStrategy/RenderFactory/RenderFactory.h"
-
-#include <fstream>
 #include <unistd.h>
-#include <vector>
-
-#include "Enum/Choice.h"
-#include "Enum/RenderingType.h"
 
 #include <QObject>
 #include <QOpenGLBuffer>
@@ -25,6 +15,14 @@
 #include <QOpenGLShaderProgram>
 #include <QOpenGLVertexArrayObject>
 #include <QtOpenGLWidgets>
+#include <fstream>
+#include <vector>
+
+#include "../../../Common/IController/IResourceProvider.h"
+#include "../../../Common/Observer/IObserver.h"
+#include "./RenderStrategy/RenderFactory/RenderFactory.h"
+#include "Enum/Choice.h"
+#include "Enum/RenderingType.h"
 
 namespace s21 {
 
@@ -64,7 +62,7 @@ class OpenGLWidget : public QOpenGLWidget,
   //! Variable with mouse position
   QPoint mPos_;
 
-public:
+ public:
   /**
    * @brief Constructor of class
    */
@@ -115,7 +113,7 @@ public:
    */
   void setUpCamera();
 
-private:
+ private:
   /**
    * @brief Clean up
    * @details The function cleans up old OpenGL environment
@@ -175,6 +173,6 @@ private:
    */
   void update() override;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

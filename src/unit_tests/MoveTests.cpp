@@ -4,7 +4,7 @@
 using namespace s21;
 
 class MoveTransformTest : public testing::Test {
-protected:
+ protected:
   MoveStrategy strategy;
   std::vector<float> v;
 

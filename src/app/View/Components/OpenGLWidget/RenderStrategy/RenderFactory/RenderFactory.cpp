@@ -4,6 +4,7 @@
  */
 
 #include "RenderFactory.h"
+
 #include "../../OpenGLWidget.h"
 
 namespace s21 {
@@ -15,14 +16,14 @@ namespace s21 {
  */
 IRenderStrategy *RenderFactory::createRenderStrategy(RenderingType type) {
   switch (type) {
-  case RenderingType::NORMAL:
-    return new CpuRenderStrategy();
-  case RenderingType::GPU:
-    return new GpuRenderStrategy();
-  default:
-    break;
+    case RenderingType::NORMAL:
+      return new CpuRenderStrategy();
+    case RenderingType::GPU:
+      return new GpuRenderStrategy();
+    default:
+      break;
   }
 
   return nullptr;
 }
-} // namespace s21
+}  // namespace s21

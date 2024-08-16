@@ -55,4 +55,4 @@ void GifMaker::gifName(QString &name) { gifName_ = std::move(name); }
  * @return true if the gif is complete, false otherwise
  */
 bool GifMaker::gifComplete() { return framesCount_ >= 50; }
-} // namespace s21
+}  // namespace s21

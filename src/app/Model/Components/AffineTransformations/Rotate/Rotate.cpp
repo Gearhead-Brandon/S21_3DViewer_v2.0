@@ -4,6 +4,7 @@
  */
 
 #include "Rotate.h"
+
 #include <cmath>
 
 namespace s21 {
@@ -63,4 +64,4 @@ void RotateStrategy::executeTransformation(std::vector<float> &vertices,
       vertices[i + 1] += cY;
     }
 }
-} // namespace s21
+}  // namespace s21

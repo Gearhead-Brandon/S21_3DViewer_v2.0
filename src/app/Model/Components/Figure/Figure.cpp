@@ -11,10 +11,12 @@ namespace s21 {
  * @brief The default constructor
  */
 Figure::Figure()
-    : vertices_(), indices_(),
-      facetsCount_(0), max_{0.0, 0.0, 0.0}, min_{0.0, 0.0, 0.0}, center_{0.0,
-                                                                         0.0,
-                                                                         0.0},
+    : vertices_(),
+      indices_(),
+      facetsCount_(0),
+      max_{0.0, 0.0, 0.0},
+      min_{0.0, 0.0, 0.0},
+      center_{0.0, 0.0, 0.0},
       strategy_(nullptr) {}
 
 /**
@@ -91,4 +93,4 @@ void Figure::setTransformStrategy(ITransformationStrategy *newStrategy) {
 void Figure::executeTransformStrategy(Axes axis, float value) {
   strategy_->executeTransformation(vertices_, axis, value, center_);
 }
-} // namespace s21
+}  // namespace s21

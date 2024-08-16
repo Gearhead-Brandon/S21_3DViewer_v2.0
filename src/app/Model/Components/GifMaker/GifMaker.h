@@ -14,7 +14,6 @@ namespace s21 {
  * @brief The class GifMaker for creating .gif files
  */
 class GifMaker {
-
   //! Pointer to QGifImage object
   QGifImage *gifImage_;
 
@@ -24,7 +23,7 @@ class GifMaker {
   //! Count of frames
   std::size_t framesCount_ = 0;
 
-public:
+ public:
   /**
    * @brief Constructor
    */
@@ -54,6 +53,6 @@ public:
    */
   bool gifComplete();
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

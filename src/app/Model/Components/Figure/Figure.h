@@ -6,10 +6,11 @@
 #ifndef FIGURE_H
 #define FIGURE_H
 
+#include <vector>
+
 #include "../../../Common/Enum/Axes.h"
 #include "../../../Common/Structures/Point.h"
 #include "../AffineTransformations/ITransformation/ITransformation.h"
-#include <vector>
 
 namespace s21 {
 
@@ -17,7 +18,6 @@ namespace s21 {
  * @brief The class Figure describes the structure of the 3D figure
  */
 class Figure {
-
   //! The vector of vertices
   std::vector<float> vertices_;
 
@@ -42,7 +42,7 @@ class Figure {
   //! The pointer to the transformation strategy
   ITransformationStrategy *strategy_;
 
-public:
+ public:
   /**
    * @brief The default constructor
    */
@@ -112,6 +112,6 @@ public:
    */
   void executeTransformStrategy(Axes axis, float value);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

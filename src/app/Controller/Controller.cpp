@@ -127,4 +127,4 @@ std::size_t Controller::getFacetsCount() const {
 const SettingsPackage &Controller::getSettingsPackage() const {
   return model_.getSettingsPackage();
 }
-} // namespace s21
+}  // namespace s21

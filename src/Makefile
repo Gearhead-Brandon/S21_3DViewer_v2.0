@@ -51,7 +51,7 @@ peer: gcov_report
 
 dvi:
 #   doxygen ./doc/Doxyfile
-#	@google-chrome ./$(DOC)/index.html
+	@google-chrome ./$(DOC)/index.html
 
 dist:
 	@if [ -d "$(DIR_INSTALL)" ]; then \

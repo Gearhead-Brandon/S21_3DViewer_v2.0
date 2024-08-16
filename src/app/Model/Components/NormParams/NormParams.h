@@ -21,6 +21,6 @@ struct NormParams {
   //! The minimum points
   Point<float> min;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

@@ -6,11 +6,12 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include "../../../Common/Settings/SettingsPackage/SettingsPackage.h"
-#include "../../../Common/Settings/VariantSetting/VariantSetting.h"
 #include <QApplication>
 #include <QSettings>
 #include <QVector3D>
+
+#include "../../../Common/Settings/SettingsPackage/SettingsPackage.h"
+#include "../../../Common/Settings/VariantSetting/VariantSetting.h"
 
 namespace s21 {
 
@@ -18,14 +19,13 @@ namespace s21 {
  * @brief The class Settings is need to work with the settings package
  */
 class Settings {
-
   //! Settings package
   SettingsPackage settings_;
 
   //! Settings file path
   std::string settingsFilePath_;
 
-public:
+ public:
   /**
    * @brief The constructor
    */
@@ -48,7 +48,7 @@ public:
    */
   const SettingsPackage &getSettingsPackage();
 
-private:
+ private:
   /**
    * @brief Set color settings
    * @param name
@@ -64,6 +64,6 @@ private:
    */
   void loadSettings();
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

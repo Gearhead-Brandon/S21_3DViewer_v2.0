@@ -6,9 +6,10 @@
 #ifndef ITRANSFORMATIONS_H
 #define ITRANSFORMATIONS_H
 
+#include <vector>
+
 #include "../../../../Common/Enum/Axes.h"
 #include "../../../../Common/Structures/Point.h"
-#include <vector>
 
 namespace s21 {
 
@@ -16,7 +17,7 @@ namespace s21 {
  * @brief The class describes the interface ITransformation
  */
 class ITransformationStrategy {
-public:
+ public:
   /**
    * @brief The virtual destructor
    */
@@ -32,6 +33,6 @@ public:
   virtual void executeTransformation(std::vector<float> &vertices, Axes axis,
                                      float value, Point<float> &center) = 0;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

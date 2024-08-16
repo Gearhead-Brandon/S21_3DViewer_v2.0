@@ -11,13 +11,11 @@
 #include <QtWidgets>
 #include <iostream>
 
+#include "../Common/Observer/Observable/Observable.h"
 #include "./Components/FileReader/FileReader.h"
 #include "./Components/GifMaker/GifMaker.h"
 #include "./Components/Scene/Scene.h"
 #include "./Components/Settings/Settings.h"
-#include <iostream>
-
-#include "../Common/Observer/Observable/Observable.h"
 
 namespace s21 {
 
@@ -26,7 +24,6 @@ namespace s21 {
  * @details Model implements the interface Observable
  */
 class Model : public Observable {
-
   //! File reader for reading the .obj file
   IFileReader *fileReader_;
 
@@ -39,7 +36,7 @@ class Model : public Observable {
   //! Gif maker for creating GIF animation
   GifMaker gifMaker_;
 
-public:
+ public:
   /**
    * @brief Constructor
    */
@@ -114,6 +111,6 @@ public:
    */
   bool gifComplete();
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

@@ -16,7 +16,7 @@ namespace s21 {
  * The class implements the ITransformationStrategy interface
  */
 class ScaleStrategy : public ITransformationStrategy {
-public:
+ public:
   /**
    * @brief The method executable the scale transformation
    * @param vertices The vector of vertices
@@ -27,6 +27,6 @@ public:
   void executeTransformation(std::vector<float> &vertices, Axes axis,
                              float value, Point<float> &center) override;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

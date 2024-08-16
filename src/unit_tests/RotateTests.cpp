@@ -4,7 +4,7 @@
 using namespace s21;
 
 class RotateTransformTest : public testing::Test {
-protected:
+ protected:
   RotateStrategy strategy;
 
   void SetUp() override {}

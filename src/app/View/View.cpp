@@ -4,6 +4,7 @@
  */
 
 #include "View.h"
+
 #include "../Common/FacadeOpResult/FacadeOpResult.h"
 
 namespace s21 {
@@ -14,8 +15,7 @@ namespace s21 {
 void View::loadModel() {
   std::string path =
       QFileDialog::getOpenFileName(this, tr("Open File")).toStdString();
-  if (path.empty())
-    return;
+  if (path.empty()) return;
 
   size_t dotPosition = path.find_last_of(".");
   if (dotPosition != std::string::npos && path.substr(dotPosition) != ".obj") {
@@ -61,13 +61,11 @@ void View::resetSliders() {
   QList<QSlider *> sliders = findChildren<QSlider *>();
 
   std::for_each(sliders.begin(), sliders.end(), [](QSlider *slider) {
-    if (slider->whatsThis() == "size slider")
-      return;
+    if (slider->whatsThis() == "size slider") return;
 
     int value = 0;
 
-    if (slider->whatsThis() == "scale slider")
-      value = 5;
+    if (slider->whatsThis() == "scale slider") value = 5;
 
     slider->setValue(value);
   });
@@ -116,13 +114,14 @@ void View::makeScreenshot() {
   if (dialog.exec()) {
     QString filePath = dialog.selectedFiles().first();
     QString extension =
-        QFileInfo(filePath).suffix(); // Получаем расширение файла
+        QFileInfo(filePath).suffix();  // Получаем расширение файла
 
     QString selectedFilter =
-        dialog.selectedNameFilter(); // Получаем выбранный фильтр
+        dialog.selectedNameFilter();  // Получаем выбранный фильтр
 
     if (extension.isEmpty()) {
-      selectedFilter = dialog.selectedNameFilter(); // Получаем выбранный фильтр
+      selectedFilter =
+          dialog.selectedNameFilter();  // Получаем выбранный фильтр
 
       if (selectedFilter == "JPEG (*.jpg)")
         filePath += ".jpg";
@@ -187,12 +186,11 @@ void View::makeGif() {
  * @brief Key press event handler for exit the application
  */
 void View::keyPressEvent(QKeyEvent *event) {
-  if (event->key() == Qt::Key_Escape)
-    quit();
+  if (event->key() == Qt::Key_Escape) quit();
 }
 
 /**
  * @brief Quit the application
  */
 void View::quit() { QApplication::quit(); }
-} // namespace s21
+}  // namespace s21

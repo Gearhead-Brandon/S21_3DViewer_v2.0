@@ -12,6 +12,6 @@ namespace s21 {
  * @brief Enum class describing the three axes
  */
 enum class Axes : int { X, Y, Z };
-} // namespace s21
+}  // namespace s21
 
 #endif

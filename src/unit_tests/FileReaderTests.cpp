@@ -4,7 +4,7 @@
 using namespace s21;
 
 class FileReaderTest : public testing::Test {
-protected:
+ protected:
   FileReader reader;
   Figure figure;
 

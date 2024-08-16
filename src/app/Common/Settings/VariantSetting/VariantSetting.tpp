@@ -20,7 +20,8 @@ VariantSetting::VariantSetting(SettingsType type, const T &data)
  * @brief Getter of the data
  * @return The possible data of the setting
  */
-template <typename T> const T *VariantSetting::getValue() const {
+template <typename T>
+const T *VariantSetting::getValue() const {
   return std::get_if<T>(&data_);
 }
-} // namespace s21
+}  // namespace s21

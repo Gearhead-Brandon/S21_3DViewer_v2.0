@@ -36,4 +36,4 @@
 #define Q_GIFIMAGE_EXPORT
 #endif
 
-#endif // QGIFGLOBAL_H
+#endif  // QGIFGLOBAL_H

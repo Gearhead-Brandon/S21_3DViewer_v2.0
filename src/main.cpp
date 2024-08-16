@@ -1,5 +1,6 @@
-#include "app/View/View.h"
 #include <QtGlobal>
+
+#include "app/View/View.h"
 
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);

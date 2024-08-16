@@ -4,7 +4,7 @@
 using namespace s21;
 
 class ScaleTransformTest : public testing::Test {
-protected:
+ protected:
   ScaleStrategy strategy;
 
   void SetUp() override {}

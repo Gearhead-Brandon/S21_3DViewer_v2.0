@@ -21,6 +21,7 @@ RGB::RGB(int red, int green, int blue) : red(red), green(green), blue(blue) {}
  * @brief The constructor of the structure RGB from three float values
  */
 RGB::RGB(float red, float green, float blue)
-    : red(static_cast<int>(red)), green(static_cast<int>(green)),
+    : red(static_cast<int>(red)),
+      green(static_cast<int>(green)),
       blue(static_cast<int>(blue)) {}
-} // namespace s21
+}  // namespace s21

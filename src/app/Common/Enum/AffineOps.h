@@ -12,6 +12,6 @@ namespace s21 {
  * @brief The enum of Affine transformations
  */
 enum class AffineOps : int { Moving, Rotation, Scaling };
-} // namespace s21
+}  // namespace s21
 
 #endif

@@ -6,9 +6,11 @@
 #ifndef GPU_RENDER_STRATEGY_H
 #define GPU_RENDER_STRATEGY_H
 
-#include "../IRenderStrategy/IRenderStrategy.h"
 #include <GL/gl.h>
+
 #include <vector>
+
+#include "../IRenderStrategy/IRenderStrategy.h"
 
 namespace s21 {
 class IResourceProvider;
@@ -19,15 +21,14 @@ class IResourceProvider;
  * IRenderStrategy
  */
 class GpuRenderStrategy : public IRenderStrategy {
-
-public:
+ public:
   /**
    * @brief The method renders 3D model
    * @param widget The openGL widget
    */
   void render(OpenGLWidget &widget) override;
 
-private:
+ private:
   /**
    * @brief The method sets up projection
    * @param resourceProvider - resource provider
@@ -100,6 +101,6 @@ private:
                                          float nearPlane, float farPlane,
                                          float *projectionMatrix);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

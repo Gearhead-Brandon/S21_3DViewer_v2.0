@@ -16,7 +16,7 @@ namespace s21 {
  * @details The class is used in the builder pattern
  */
 class AffineBuilder {
-public:
+ public:
   /**
    * @brief The default constructor
    */
@@ -34,6 +34,6 @@ public:
    */
   ITransformationStrategy *buildTransformStrategy(AffineOps op);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

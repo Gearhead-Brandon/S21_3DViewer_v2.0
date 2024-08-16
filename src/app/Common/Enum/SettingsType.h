@@ -21,6 +21,6 @@ enum class SettingsType : int {
   PointSize,
   ProjectionType
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

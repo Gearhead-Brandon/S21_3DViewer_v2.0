@@ -12,7 +12,6 @@ namespace s21 {
  * @brief The structure RGB
  */
 struct RGB {
-
   //! Red color
   int red;
 
@@ -37,6 +36,6 @@ struct RGB {
    */
   RGB(float red, float green, float blue);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

@@ -17,7 +17,7 @@ namespace s21 {
  * @details FileReader implements the interface IFileReader
  */
 class FileReader : public IFileReader {
-public:
+ public:
   /**
    * @brief The default constructor
    */
@@ -36,7 +36,7 @@ public:
    */
   FacadeOpResult readScene(Figure &figure, const std::string &path) override;
 
-private:
+ private:
   /**
    * @brief The method validates the file
    * @param figure The figure
@@ -76,6 +76,6 @@ private:
    */
   void Normalization(Figure &figure, NormParams &normParams);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

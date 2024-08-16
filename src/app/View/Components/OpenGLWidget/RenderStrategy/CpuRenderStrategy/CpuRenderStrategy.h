@@ -18,15 +18,14 @@ class SettingsPackage;
  * IRenderStrategy
  */
 class CpuRenderStrategy : public IRenderStrategy {
-
-public:
+ public:
   /**
    * @brief The method renders 3D model
    * @param widget The openGL widget
    */
   void render(OpenGLWidget &widget) override;
 
-private:
+ private:
   /**
    * @brief The method displays axes
    */
@@ -50,6 +49,6 @@ private:
    */
   void drawVertices(const IResourceProvider &resourceProvider);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

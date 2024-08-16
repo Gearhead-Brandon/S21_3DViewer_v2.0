@@ -4,9 +4,11 @@
  */
 
 #include "FileReader.h"
-#include "fstream"
+
 #include <iostream>
 #include <sstream>
+
+#include "fstream"
 
 namespace s21 {
 
@@ -18,8 +20,7 @@ namespace s21 {
  */
 FacadeOpResult FileReader::readScene(Figure &figure, const std::string &path) {
   FacadeOpResult result = fileValidation(figure, path);
-  if (!result.IsSuccess())
-    return result;
+  if (!result.IsSuccess()) return result;
 
   figure.reset();
 
@@ -67,18 +68,15 @@ FacadeOpResult FileReader::fileValidation(Figure &figure,
                                           const std::string &file_name) {
   std::ifstream file(file_name);
 
-  if (!file.is_open())
-    return FacadeOpResult(false, "Could not open file");
+  if (!file.is_open()) return FacadeOpResult(false, "Could not open file");
 
   std::string line("");
 
   std::size_t countV = 0, countF = 0;
 
   while (std::getline(file, line)) {
-    if (line[0] == 'v' && line[1] == ' ')
-      countV++;
-    if (line[0] == 'f')
-      countF++;
+    if (line[0] == 'v' && line[1] == ' ') countV++;
+    if (line[0] == 'f') countF++;
   }
 
   if (countV < 1 || countF < 1)
@@ -136,11 +134,9 @@ void FileReader::Normalization(Figure &figure, NormParams &normParams) {
  */
 void FileReader::readFacet(Figure &figure, int *first_index, int count,
                            int number) {
-  if (number < 0)
-    number = (figure.getVertices().size() / 3) + (number + 1);
+  if (number < 0) number = (figure.getVertices().size() / 3) + (number + 1);
 
-  if (number > 0)
-    --number;
+  if (number > 0) --number;
 
   std::vector<uint> &indices = figure.getIndices();
 
@@ -196,4 +192,4 @@ void FileReader::readMinMax(Figure &figure, NormParams &normParams) {
                        std::min(z, min.z)};
   }
 }
-} // namespace s21
+}  // namespace s21

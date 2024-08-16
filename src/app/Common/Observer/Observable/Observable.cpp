@@ -25,4 +25,4 @@ void Observable::notifyUpdate() {
     _observers[i]->update();
   }
 }
-} // namespace s21
+}  // namespace s21

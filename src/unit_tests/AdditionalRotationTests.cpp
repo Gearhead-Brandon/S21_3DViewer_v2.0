@@ -5,7 +5,7 @@
 using namespace s21;
 
 class AdditionalRotateTransformTest : public testing::Test {
-protected:
+ protected:
   RotateStrategy strategy;
   Figure original;
   Figure figure;

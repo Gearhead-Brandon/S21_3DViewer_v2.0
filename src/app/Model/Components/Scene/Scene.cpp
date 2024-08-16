@@ -4,6 +4,7 @@
  */
 
 #include "Scene.h"
+
 #include <iostream>
 
 namespace s21 {
@@ -51,4 +52,4 @@ FacadeOpResult Scene::transformFigure(AffineOps op, Axes axis, float value) {
 
   return FacadeOpResult(true, "Figure transformed");
 }
-} // namespace s21
+}  // namespace s21

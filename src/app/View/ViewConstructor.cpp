@@ -12,10 +12,11 @@ namespace s21 {
  * @param controller
  */
 View::View(Controller &controller)
-    : QMainWindow(), sceneLoader_(controller),
-      openGLWidget_(controller), lastMoveValue_{0, 0, 0}, lastRotationValue_{
-                                                              0, 0, 0} {
-
+    : QMainWindow(),
+      sceneLoader_(controller),
+      openGLWidget_(controller),
+      lastMoveValue_{0, 0, 0},
+      lastRotationValue_{0, 0, 0} {
   setWindowTitle(tr("3DViewer"));
   setGeometry(100, 100, 1100, 600);
   setStyleSheet(FontStyle);
@@ -190,14 +191,14 @@ void View::createProjectionSelectionBox(QGridLayout *grid) {
   group->addButton(radioParallel);
   group->addButton(radioCenter);
 
-  connect(group, &QButtonGroup::buttonClicked, this,
-          [&parallelBtn = *radioParallel,
-           &settings = sceneLoader_](QAbstractButton *button) {
-            settings.setSetting(
-                {SettingsType::ProjectionType, button == &parallelBtn
-                                                   ? ProjectionType::Parallel
-                                                   : ProjectionType::Central});
-          });
+  connect(
+      group, &QButtonGroup::buttonClicked, this,
+      [&parallelBtn = *radioParallel,
+       &settings = sceneLoader_](QAbstractButton *button) {
+        settings.setSetting({SettingsType::ProjectionType,
+                             button == &parallelBtn ? ProjectionType::Parallel
+                                                    : ProjectionType::Central});
+      });
 
   QHBoxLayout *box = new QHBoxLayout;
   box->addWidget(parallel);
@@ -287,31 +288,29 @@ void View::createMoveScaleBox(QGridLayout *grid) {
 QHBoxLayout *View::moveScaleBoxFactory(const char *name, SliderData &data,
                                        AffineOps op, Axes axis,
                                        float coefficient, int *last) {
-
   QLabel *label = new QLabel(tr(name));
   label->setFixedWidth(19);
   label->setAlignment(Qt::AlignCenter);
   label->setStyleSheet(LabelStyle);
 
   QSlider *slider = new QSlider(Qt::Horizontal, this);
-  if (op == AffineOps::Scaling)
-    slider->setWhatsThis("scale slider");
+  if (op == AffineOps::Scaling) slider->setWhatsThis("scale slider");
   slider->setRange(data.min_value, data.max_value);
   slider->setValue(data.current_value);
   slider->setStyleSheet(MoveSliderStyle);
 
-  QObject::connect(slider, &QSlider::valueChanged, this,
-                   [this, op, axis, coefficient, last](int value) {
-                     if (op == AffineOps::Scaling)
-                       transformScene(AffineOps::Scaling, Axes::X, value);
-                     else if (op == AffineOps::Moving) {
-                       transformScene(op, axis,
-                                      coefficient * ((*last == -100)
-                                                         ? value
-                                                         : value - *last));
-                       *last = value;
-                     }
-                   });
+  QObject::connect(
+      slider, &QSlider::valueChanged, this,
+      [this, op, axis, coefficient, last](int value) {
+        if (op == AffineOps::Scaling)
+          transformScene(AffineOps::Scaling, Axes::X, value);
+        else if (op == AffineOps::Moving) {
+          transformScene(
+              op, axis,
+              coefficient * ((*last == -100) ? value : value - *last));
+          *last = value;
+        }
+      });
 
   QHBoxLayout *box = new QHBoxLayout;
   box->addWidget(label);
@@ -371,8 +370,7 @@ QHBoxLayout *View::rotationBoxFactory(const char *name, Axes axis, int &last) {
   increaseButton->setFixedWidth(15);
 
   QObject::connect(increaseButton, &QPushButton::pressed, [slider]() {
-    if (slider->value() < 360)
-      slider->setValue(slider->value() + 1);
+    if (slider->value() < 360) slider->setValue(slider->value() + 1);
   });
 
   // decrease button
@@ -381,8 +379,7 @@ QHBoxLayout *View::rotationBoxFactory(const char *name, Axes axis, int &last) {
   decreaseButton->setFixedWidth(15);
 
   QObject::connect(decreaseButton, &QPushButton::clicked, [slider]() {
-    if (slider->value() > 0)
-      slider->setValue(slider->value() - 1);
+    if (slider->value() > 0) slider->setValue(slider->value() - 1);
   });
 
   // box
@@ -518,11 +515,11 @@ QHBoxLayout *View::linePointIncreaseBoxFactory(const char *name, int max_value,
   // slider
   QSlider *slider = new QSlider(Qt::Horizontal, this);
   slider->setWhatsThis("size slider");
-  slider->setRange(1, max_value); // Установка диапазона значений
+  slider->setRange(1, max_value);  // Установка диапазона значений
   slider->setValue(type == SettingsType::LineWidth
                        ? sceneLoader_.getSettingsPackage().lineWidth
                        : sceneLoader_.getSettingsPackage()
-                             .pointSize); // Установка начального значения
+                             .pointSize);  // Установка начального значения
   slider->setTickPosition(QSlider::TicksBothSides);
   slider->setTickInterval(5);
 
@@ -599,4 +596,4 @@ void View::addVertexTypeSelectionBox(QGridLayout *grid) {
 
   grid->addLayout(box, 8, 1);
 }
-} // namespace s21
+}  // namespace s21

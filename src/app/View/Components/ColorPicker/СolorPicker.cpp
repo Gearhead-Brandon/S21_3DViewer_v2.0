@@ -83,4 +83,4 @@ QLinearGradient ColorPicker::createRainbowGradient() {
   gradient.setColorAt(1.0, Qt::black);
   return gradient;
 }
-} // namespace s21
+}  // namespace s21

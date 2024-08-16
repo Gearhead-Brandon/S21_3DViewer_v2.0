@@ -21,8 +21,7 @@ Model::~Model() { delete fileReader_; }
 FacadeOpResult Model::loadScene(const std::string &path) {
   FacadeOpResult result = fileReader_->readScene(scene_.getFigure(), path);
 
-  if (!result.IsSuccess())
-    return result;
+  if (!result.IsSuccess()) return result;
 
   scene_.reset();
 
@@ -62,8 +61,7 @@ std::size_t Model::getFacetsCount() {
  */
 FacadeOpResult Model::transformScene(AffineOps op, Axes axis, float value) {
   FacadeOpResult res = scene_.transformFigure(op, axis, value);
-  if (!res.IsSuccess())
-    return res;
+  if (!res.IsSuccess()) return res;
 
   notifyUpdate();
 
@@ -104,4 +102,4 @@ void Model::gifName(QString &name) { gifMaker_.gifName(name); }
  * @returns true if the GIF is complete, false otherwise
  */
 bool Model::gifComplete() { return gifMaker_.gifComplete(); }
-} // namespace s21
+}  // namespace s21

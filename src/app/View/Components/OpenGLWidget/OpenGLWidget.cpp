@@ -3,6 +3,7 @@
     @brief Source file describing class OpenGLWidget methods
 */
 #include "OpenGLWidget.h"
+
 #include <iostream>
 
 namespace s21 {
@@ -10,11 +11,15 @@ namespace s21 {
  * @brief Constructor of class
  */
 OpenGLWidget::OpenGLWidget(IResourceProvider &resourceProvider)
-    : QOpenGLWidget(nullptr), resourceProvider_(resourceProvider),
+    : QOpenGLWidget(nullptr),
+      resourceProvider_(resourceProvider),
       renderStrategy_(
           RenderFactory().createRenderStrategy(RenderingType::NORMAL)),
-      shaderProgram_(0), displayAxes_(Choice::Yes),
-      renderingType_(RenderingType::NORMAL), xRot_(0.0f), yRot_(0.0f),
+      shaderProgram_(0),
+      displayAxes_(Choice::Yes),
+      renderingType_(RenderingType::NORMAL),
+      xRot_(0.0f),
+      yRot_(0.0f),
       scaleMouse_(1.0f) {}
 
 /**
@@ -189,4 +194,4 @@ void OpenGLWidget::wheelEvent(QWheelEvent *event) {
   // Изменить масштаб сцены
   changeScale(scaleFactor);
 }
-} // namespace s21
+}  // namespace s21

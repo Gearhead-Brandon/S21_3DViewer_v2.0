@@ -6,11 +6,12 @@
 #ifndef SETTINGS_PACKAGE_H
 #define SETTINGS_PACKAGE_H
 
+#include <iostream>
+
 #include "../../Enum/LineType.h"
 #include "../../Enum/ProjectionType.h"
 #include "../../Enum/VertexType.h"
 #include "../../Structures/RGB/RGB.h"
-#include <iostream>
 
 namespace s21 {
 
@@ -19,7 +20,6 @@ namespace s21 {
  * @details The structure describes the settings package
  */
 struct SettingsPackage {
-
   //! The background color
   RGB background;
 
@@ -54,6 +54,6 @@ struct SettingsPackage {
    */
   ~SettingsPackage() = default;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

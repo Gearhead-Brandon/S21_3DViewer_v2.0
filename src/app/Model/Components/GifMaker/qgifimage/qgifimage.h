@@ -35,7 +35,7 @@
 class QGifImagePrivate;
 class Q_GIFIMAGE_EXPORT QGifImage {
   Q_DECLARE_PRIVATE(QGifImage)
-public:
+ public:
   QGifImage();
   QGifImage(const QString &fileName);
   QGifImage(const QSize &size);
@@ -74,8 +74,8 @@ public:
   bool save(QIODevice *device) const;
   bool save(const QString &fileName) const;
 
-private:
+ private:
   QGifImagePrivate *const d_ptr;
 };
 
-#endif // QGIFIMAGE_H
+#endif  // QGIFIMAGE_H

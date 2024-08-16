@@ -17,14 +17,13 @@ namespace s21 {
  * @details Scene is need for the transformation of the figure
  */
 class Scene {
-
   //! The figure of the 3D scene
   Figure figure_;
 
   //! The coefficient of the scale
   float scaleCoefficient_;
 
-public:
+ public:
   /**
    * @brief Constructor
    */
@@ -55,6 +54,6 @@ public:
    */
   void reset();
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

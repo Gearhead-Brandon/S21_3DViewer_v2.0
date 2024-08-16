@@ -4,6 +4,7 @@
  */
 
 #include "CpuRenderStrategy.h"
+
 #include "../../OpenGLWidget.h"
 
 namespace s21 {
@@ -15,8 +16,7 @@ namespace s21 {
 void CpuRenderStrategy::render(OpenGLWidget &widget) {
   const IResourceProvider &resourceProvider = widget.getResourceProvider();
   const std::vector<float> &vertices = resourceProvider.getVertices();
-  if (vertices.empty())
-    return;
+  if (vertices.empty()) return;
 
   const std::vector<unsigned> &indices = resourceProvider.getIndices();
   const SettingsPackage &settings = resourceProvider.getSettingsPackage();
@@ -47,8 +47,7 @@ void CpuRenderStrategy::render(OpenGLWidget &widget) {
   // Отрисовка вершин
   drawVertices(resourceProvider);
 
-  if (widget.getDisplayAxes() == Choice::Yes)
-    displayAxes();
+  if (widget.getDisplayAxes() == Choice::Yes) displayAxes();
   //////////////////////////////////////////
   glDisableClientState(GL_VERTEX_ARRAY);
 }
@@ -64,8 +63,7 @@ void CpuRenderStrategy::drawVertices(
   const std::vector<unsigned> &indicesVertices =
       resourceProvider.getIndicesVertices();
 
-  if (settings.vertexType == VertexType::None)
-    return;
+  if (settings.vertexType == VertexType::None) return;
 
   (settings.vertexType == VertexType::Circle) ? glEnable(GL_POINT_SMOOTH)
                                               : glDisable(GL_POINT_SMOOTH);
@@ -96,17 +94,17 @@ void CpuRenderStrategy::defineLineType(const SettingsPackage &settings) {
 void CpuRenderStrategy::displayAxes() {
   glEnableClientState(GL_COLOR_ARRAY);
   GLfloat verticesAxis[] = {
-      0.0f, 0.0f, 0.0f, // Начало
-      1.5f, 0.0f, 0.0f, // Конец X
-      0.0f, 0.0f, 0.0f, // Начало
-      0.0f, 1.5f, 0.0f, // Конец Y
-      0.0f, 0.0f, 0.0f, // Начало
-      0.0f, 0.0f, 1.5f  // Конец Z
+      0.0f, 0.0f, 0.0f,  // Начало
+      1.5f, 0.0f, 0.0f,  // Конец X
+      0.0f, 0.0f, 0.0f,  // Начало
+      0.0f, 1.5f, 0.0f,  // Конец Y
+      0.0f, 0.0f, 0.0f,  // Начало
+      0.0f, 0.0f, 1.5f   // Конец Z
   };
 
-  GLfloat colorsAxis[] = {1.0f, 0.0f, 0.0f,                   // X
-                          1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, // Y
-                          0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // Z
+  GLfloat colorsAxis[] = {1.0f, 0.0f, 0.0f,                    // X
+                          1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // Y
+                          0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,  // Z
                           0.0f, 0.0f, 1.0f};
 
   GLuint indicesAxis[] = {0, 1, 1, 0, 2, 3, 3, 2, 4, 5, 5, 4};
@@ -130,8 +128,7 @@ void CpuRenderStrategy::setUpProjection(
 
   double max_coordinate_ = std::max(max.x, std::max(max.y, max.z));
 
-  if (max_coordinate_ < 1)
-    max_coordinate_ = 2;
+  if (max_coordinate_ < 1) max_coordinate_ = 2;
 
   // Ближнее расстояние отсечения
   GLdouble z_near = 0.001;
@@ -142,7 +139,7 @@ void CpuRenderStrategy::setUpProjection(
   const SettingsPackage &settings = resourceProvider.getSettingsPackage();
 
   if (settings.projection ==
-      ProjectionType::Central) { // Central/Perspective projection
+      ProjectionType::Central) {  // Central/Perspective projection
     // Поле зрения в градусах по оси y
     GLdouble fov_y = 90;
     GLdouble fH = tan(fov_y / 360 * M_PI) * z_near;
@@ -150,10 +147,10 @@ void CpuRenderStrategy::setUpProjection(
     glFrustum(-fW, fW, -fH, fH, z_near, z_far);
     glTranslated(0, 0, -3);
   } else if (settings.projection ==
-             ProjectionType::Parallel) { // Parallel/Orthographic projection
+             ProjectionType::Parallel) {  // Parallel/Orthographic projection
     glOrtho(-max_coordinate_, max_coordinate_, -max_coordinate_,
             max_coordinate_, -max_coordinate_, z_far);
     glTranslated(0, 0, -3);
   }
 }
-} // namespace s21
+}  // namespace s21

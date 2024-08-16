@@ -18,20 +18,20 @@ namespace s21 {
  * @brief The class describes the variant setting
  */
 class VariantSetting {
-
   //! The type of setting
   SettingsType type_;
 
   //! The possible data of the setting
   std::variant<RGB, std::size_t, LineType, VertexType, ProjectionType> data_;
 
-public:
+ public:
   /**
    * @brief Constructor
    * @param type The type of setting
    * @param data The possible data of the setting
    */
-  template <typename T> VariantSetting(SettingsType type, const T &data);
+  template <typename T>
+  VariantSetting(SettingsType type, const T &data);
 
   /**
    * @brief Destructor
@@ -42,7 +42,8 @@ public:
    * @brief Getter of the data
    * @return The possible data of the setting
    */
-  template <typename T> const T *getValue() const;
+  template <typename T>
+  const T *getValue() const;
 
   /**
    * @brief Getter of the type
@@ -50,7 +51,7 @@ public:
    */
   SettingsType getType() const { return type_; }
 };
-} // namespace s21
+}  // namespace s21
 
 #include "VariantSetting.tpp"
 

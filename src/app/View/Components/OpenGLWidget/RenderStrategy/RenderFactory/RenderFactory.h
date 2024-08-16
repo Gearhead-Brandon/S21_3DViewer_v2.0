@@ -16,8 +16,7 @@ namespace s21 {
  * @brief The class RenderFactory is used to create render strategies
  */
 class RenderFactory {
-
-public:
+ public:
   /**
    * @brief The destructor
    */
@@ -30,6 +29,6 @@ public:
    */
   IRenderStrategy *createRenderStrategy(RenderingType type);
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

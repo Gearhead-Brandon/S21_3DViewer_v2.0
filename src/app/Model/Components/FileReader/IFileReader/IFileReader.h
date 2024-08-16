@@ -16,7 +16,7 @@ namespace s21 {
  * @details IFileReader is used to read the .obj file
  */
 class IFileReader {
-public:
+ public:
   /**
    * @brief The destructor of the IFileReader class
    */
@@ -31,6 +31,6 @@ public:
   virtual FacadeOpResult readScene(Figure &figure,
                                    const std::string &fileName) = 0;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

@@ -1,4 +1,5 @@
 #include "GpuRenderStrategy.h"
+
 #include "../../OpenGLWidget.h"
 
 namespace s21 {
@@ -10,15 +11,13 @@ namespace s21 {
 void GpuRenderStrategy::render(OpenGLWidget &widget) {
   const IResourceProvider &resourceProvider = widget.getResourceProvider();
   const std::vector<float> &vertices = resourceProvider.getVertices();
-  if (vertices.empty())
-    return;
+  if (vertices.empty()) return;
 
   const std::vector<unsigned> &indices = resourceProvider.getIndices();
   const SettingsPackage &settings = resourceProvider.getSettingsPackage();
 
   bool res = widget.getShaderProgram().bind();
-  if (!res)
-    return;
+  if (!res) return;
 
   GLuint VBO = createVBO(widget, vertices);
   GLuint EBO = createEBO(widget, resourceProvider);
@@ -54,8 +53,7 @@ void GpuRenderStrategy::render(OpenGLWidget &widget) {
 
   widget.glDeleteBuffers(1, &VBO);
 
-  if (widget.getDisplayAxes() == Choice::Yes)
-    drawAxes(widget);
+  if (widget.getDisplayAxes() == Choice::Yes) drawAxes(widget);
 
   widget.glBindVertexArray(0);
   widget.getShaderProgram().release();
@@ -151,9 +149,9 @@ void GpuRenderStrategy::drawVertices(OpenGLWidget &widget) {
  */
 void GpuRenderStrategy::drawAxes(OpenGLWidget &widget) {
   std::vector<float> axisVertices = {
-      0.0f, 0.0f, 0.0f, 1.5f, 0.0f, 0.0f, // X
-      0.0f, 0.0f, 0.0f, 0.0f, 1.5f, 0.0f, // Y
-      0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.5f  // Z
+      0.0f, 0.0f, 0.0f, 1.5f, 0.0f, 0.0f,  // X
+      0.0f, 0.0f, 0.0f, 0.0f, 1.5f, 0.0f,  // Y
+      0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.5f   // Z
   };
 
   // Создать новый буфер для вершин осей координат
@@ -175,20 +173,22 @@ void GpuRenderStrategy::drawAxes(OpenGLWidget &widget) {
       widget.getShaderProgram().programId(), "fragmentColor");
 
   // Нарисовать оси координат по очереди с разными цветами
-  int numberOfVerticesForAxisX = 2; // Количество вершин для оси X
-  int numberOfVerticesForAxisY = 2; // Количество вершин для оси Y
-  int numberOfVerticesForAxisZ = 2; // Количество вершин для оси Z
+  int numberOfVerticesForAxisX = 2;  // Количество вершин для оси X
+  int numberOfVerticesForAxisY = 2;  // Количество вершин для оси Y
+  int numberOfVerticesForAxisZ = 2;  // Количество вершин для оси Z
 
   // Нарисовать ось X (красный цвет)
-  widget.glUniform3f(colorLocation, 1.0f, 0.0f, 0.0f); // Красный цвет для оси X
+  widget.glUniform3f(colorLocation, 1.0f, 0.0f,
+                     0.0f);  // Красный цвет для оси X
   glDrawArrays(GL_LINES, 0, numberOfVerticesForAxisX);
 
   // Нарисовать ось Y (зеленый цвет)
-  widget.glUniform3f(colorLocation, 0.0f, 1.0f, 0.0f); // Зеленый цвет для оси Y
+  widget.glUniform3f(colorLocation, 0.0f, 1.0f,
+                     0.0f);  // Зеленый цвет для оси Y
   glDrawArrays(GL_LINES, numberOfVerticesForAxisX, numberOfVerticesForAxisY);
 
   // Нарисовать ось Z (синий цвет)
-  widget.glUniform3f(colorLocation, 0.0f, 0.0f, 1.0f); // Синий цвет для оси Z
+  widget.glUniform3f(colorLocation, 0.0f, 0.0f, 1.0f);  // Синий цвет для оси Z
   glDrawArrays(GL_LINES, numberOfVerticesForAxisX + numberOfVerticesForAxisY,
                numberOfVerticesForAxisZ);
 
@@ -207,8 +207,7 @@ void GpuRenderStrategy::setUpProjection(
 
   double max_coordinate_ = std::max(max.x, std::max(max.y, max.z));
 
-  if (max_coordinate_ < 1)
-    max_coordinate_ = 2;
+  if (max_coordinate_ < 1) max_coordinate_ = 2;
 
   // Ближнее расстояние отсечения
   GLdouble z_near = 0.001;
@@ -219,7 +218,7 @@ void GpuRenderStrategy::setUpProjection(
   const SettingsPackage &settings = resourceProvider.getSettingsPackage();
 
   if (settings.projection ==
-      ProjectionType::Central) { // Central/Perspective projection
+      ProjectionType::Central) {  // Central/Perspective projection
     // Поле зрения в градусах по оси y
     GLdouble fov_y = 90;
     GLdouble fH = tan(fov_y / 360 * M_PI) * z_near;
@@ -227,7 +226,7 @@ void GpuRenderStrategy::setUpProjection(
     createPerspectiveProjectionMatrix(fov_y, fW / fH, z_near, z_far,
                                       projection);
   } else if (settings.projection ==
-             ProjectionType::Parallel) // Parallel/Orthographic projection
+             ProjectionType::Parallel)  // Parallel/Orthographic projection
     createOrthographicProjectionMatrix(-max_coordinate_, max_coordinate_,
                                        -max_coordinate_, max_coordinate_,
                                        -max_coordinate_, z_far, projection);
@@ -300,4 +299,4 @@ void GpuRenderStrategy::createPerspectiveProjectionMatrix(
   projectionMatrix[14] = (2.0f * farPlane * nearPlane) / (nearPlane - farPlane);
   // projectionMatrix[15] = 0.0f;
 }
-} // namespace s21
+}  // namespace s21

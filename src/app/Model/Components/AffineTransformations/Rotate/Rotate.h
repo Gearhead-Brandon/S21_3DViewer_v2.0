@@ -16,7 +16,7 @@ namespace s21 {
  * Class implements the ITransformationStrategy interface
  */
 class RotateStrategy : public ITransformationStrategy {
-public:
+ public:
   /**
    * @brief The method executable the rotation transformation
    * @param vertices The vector of vertices
@@ -27,6 +27,6 @@ public:
   void executeTransformation(std::vector<float> &vertices, Axes axis,
                              float value, Point<float> &center) override;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

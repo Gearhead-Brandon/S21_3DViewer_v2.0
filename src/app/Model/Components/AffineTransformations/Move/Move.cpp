@@ -20,16 +20,12 @@ void MoveStrategy::executeTransformation(std::vector<float> &vertices,
   int axisIndex = static_cast<int>(axis);
   int size = vertices.size();
 
-  for (int i = axisIndex; i < size; i += 3)
-    vertices[i] += value;
+  for (int i = axisIndex; i < size; i += 3) vertices[i] += value;
 
-  if (axis == Axes::X)
-    center.x += value;
+  if (axis == Axes::X) center.x += value;
 
-  if (axis == Axes::Y)
-    center.y += value;
+  if (axis == Axes::Y) center.y += value;
 
-  if (axis == Axes::Z)
-    center.z += value;
+  if (axis == Axes::Z) center.z += value;
 }
-} // namespace s21
+}  // namespace s21

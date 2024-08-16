@@ -6,11 +6,12 @@
 #ifndef ISCENE_LOADER_H
 #define ISCENE_LOADER_H
 
+#include <string>
+
 #include "../Enum/AffineOps.h"
 #include "../Enum/Axes.h"
 #include "../Settings/SettingsPackage/SettingsPackage.h"
 #include "../Settings/VariantSetting/VariantSetting.h"
-#include <string>
 
 class QImage;
 class QString;
@@ -23,8 +24,7 @@ class FacadeOpResult;
  * @details The class ISceneLoader is used to load model and transform scene
  */
 class ISceneLoader {
-
-public:
+ public:
   /**
    * @brief Virtual destructor
    */
@@ -95,6 +95,6 @@ public:
    */
   virtual bool gifComplete() = 0;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

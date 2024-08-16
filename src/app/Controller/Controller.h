@@ -6,11 +6,12 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include <iostream>
+
 #include "../Common/IController/IResourceProvider.h"
 #include "../Common/IController/ISceneLoader.h"
 #include "../Common/Observer/IObserver.h"
 #include "../Model/Model.h"
-#include <iostream>
 
 namespace s21 {
 
@@ -20,11 +21,10 @@ namespace s21 {
  * scene as a layer between the view and the model
  */
 class Controller : public IResourceProvider, public ISceneLoader {
-
   //! Model reference
   Model &model_;
 
-public:
+ public:
   /**
    * @brief Constructor
    * @param model Model reference
@@ -130,6 +130,6 @@ public:
    */
   const SettingsPackage &getSettingsPackage() const override;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif

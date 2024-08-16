@@ -13,7 +13,7 @@ class OpenGLWidget;
  * @brief The interface IRenderStrategy is used to render 3D models
  */
 class IRenderStrategy {
-public:
+ public:
   /**
    * @brief Virtual destructor
    */
@@ -25,6 +25,6 @@ public:
    */
   virtual void render(OpenGLWidget &widget) = 0;
 };
-} // namespace s21
+}  // namespace s21
 
 #endif
