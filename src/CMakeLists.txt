@@ -8,7 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_COMPILER "/usr/bin/gcc")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lstdc++ -std=c++17 -Wall -Werror -Wextra") 
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lstdc++ -std=c++17 ") 
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -25,11 +24,6 @@ file(GLOB_RECURSE SOURCE_FILES
     "./app/*.cpp"
     "./app/*.c"
 )
-
-#Create a library target
-
-# add_library(desktop_ui STATIC ${LIB_DESKTOP})
-# target_link_libraries(desktop_ui Qt6::Core Qt6::Gui Qt6::Widgets)
 
 # Create an executable target
 add_executable(3DViewer ${MAIN} ${SOURCE_FILES})
