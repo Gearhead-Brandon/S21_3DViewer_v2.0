@@ -1,5 +1,3 @@
-#include <QtGlobal>
-
 #include "app/View/View.h"
 
 int main(int argc, char *argv[]) {

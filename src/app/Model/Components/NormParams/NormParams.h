@@ -16,10 +16,10 @@ namespace s21 {
  */
 struct NormParams {
   //! The maximum points
-  Point<float> max;
+  Point<float> max = {0.0, 0.0, 0.0};
 
   //! The minimum points
-  Point<float> min;
+  Point<float> min = {0.0, 0.0, 0.0};
 };
 }  // namespace s21
 
