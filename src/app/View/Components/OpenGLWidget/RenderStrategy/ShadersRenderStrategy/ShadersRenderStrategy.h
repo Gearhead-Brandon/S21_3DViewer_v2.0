@@ -1,10 +1,10 @@
 /**
- *  @file GpuRenderStrategy.h
- *  @brief Header file describing the class GpuRenderStrategy
+ *  @file ShadersRenderStrategy.h
+ *  @brief Header file describing the class ShadersRenderStrategy
  */
 
-#ifndef GPU_RENDER_STRATEGY_H
-#define GPU_RENDER_STRATEGY_H
+#ifndef SHADERS_RENDER_STRATEGY_H
+#define SHADERS_RENDER_STRATEGY_H
 
 #include <GL/gl.h>
 
@@ -16,11 +16,11 @@ namespace s21 {
 class IResourceProvider;
 
 /**
- * @brief The class GpuRenderStrategy is used to render 3D models
- * @details The class GpuRenderStrategy is implementing the interface
+ * @brief The class ShadersRenderStrategy is used to render 3D models
+ * @details The class ShadersRenderStrategy is implementing the interface
  * IRenderStrategy
  */
-class GpuRenderStrategy : public IRenderStrategy {
+class ShadersRenderStrategy : public IRenderStrategy {
  public:
   /**
    * @brief The method renders 3D model

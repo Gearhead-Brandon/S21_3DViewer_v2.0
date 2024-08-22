@@ -9,6 +9,6 @@
 /**
  * @brief Enum class describing the type of rendering
  */
-enum class RenderingType : int { NORMAL, GPU };
+enum class RenderingType : int { DEFAULT, SHADERS };
 
 #endif

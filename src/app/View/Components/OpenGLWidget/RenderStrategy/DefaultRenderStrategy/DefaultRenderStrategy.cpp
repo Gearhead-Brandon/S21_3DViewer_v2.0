@@ -1,9 +1,9 @@
 /**
- *  @file CpuRenderStrategy.cpp
- *  @brief Source file implementing the class CpuRenderStrategy
+ *  @file DefaultRenderStrategy.cpp
+ *  @brief Source file implementing the class DefaultRenderStrategy
  */
 
-#include "CpuRenderStrategy.h"
+#include "DefaultRenderStrategy.h"
 
 #include "../../OpenGLWidget.h"
 
@@ -13,7 +13,7 @@ namespace s21 {
  * @brief The method renders 3D model
  * @param widget The openGL widget
  */
-void CpuRenderStrategy::render(OpenGLWidget &widget) {
+void DefaultRenderStrategy::render(OpenGLWidget &widget) {
   const IResourceProvider &resourceProvider = widget.getResourceProvider();
   const std::vector<float> &vertices = resourceProvider.getVertices();
   if (vertices.empty()) return;
@@ -56,7 +56,7 @@ void CpuRenderStrategy::render(OpenGLWidget &widget) {
  * @brief The method draws vertices
  * @param resourceProvider - resource provider
  */
-void CpuRenderStrategy::drawVertices(
+void DefaultRenderStrategy::drawVertices(
     const IResourceProvider &resourceProvider) {
   const SettingsPackage &settings = resourceProvider.getSettingsPackage();
   const std::vector<float> &vertices = resourceProvider.getVertices();
@@ -80,7 +80,7 @@ void CpuRenderStrategy::drawVertices(
  * @brief The method defines line type
  * @param settings - settings
  */
-void CpuRenderStrategy::defineLineType(const SettingsPackage &settings) {
+void DefaultRenderStrategy::defineLineType(const SettingsPackage &settings) {
   if (settings.lineType == LineType::Stipple) {
     glEnable(GL_LINE_STIPPLE);
     glLineStipple(4, 0xAAAA);
@@ -91,7 +91,7 @@ void CpuRenderStrategy::defineLineType(const SettingsPackage &settings) {
 /**
  * @brief The method displays axes
  */
-void CpuRenderStrategy::displayAxes() {
+void DefaultRenderStrategy::displayAxes() {
   glEnableClientState(GL_COLOR_ARRAY);
   GLfloat verticesAxis[] = {
       0.0f, 0.0f, 0.0f,  // Начало
@@ -122,7 +122,7 @@ void CpuRenderStrategy::displayAxes() {
  * @brief The method sets up projection
  * @param resourceProvider - resource provider
  */
-void CpuRenderStrategy::setUpProjection(
+void DefaultRenderStrategy::setUpProjection(
     const IResourceProvider &resourceProvider) {
   const Point<float> &max = resourceProvider.getMaxPoint();
 

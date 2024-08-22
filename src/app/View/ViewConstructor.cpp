@@ -228,22 +228,22 @@ void View::createDisplayAxesBox(QGridLayout *grid) {
   QObject::connect(checkBox, &QCheckBox::stateChanged, &openGLWidget_,
                    &OpenGLWidget::setDisplayAxes);
 
-  QPushButton *button = new QPushButton(tr("NORMAL"));
-  button->setStyleSheet(RenderingTypeBtnCpuStyle);
+  QPushButton *button = new QPushButton(tr("DEFAULT"));
+  button->setStyleSheet(RenderingTypeBtnDefaultStyle);
   button->setFixedSize(130, 27);
   button->setToolTip("ВЫбор типа отрисовки");
 
   connect(button, &QPushButton::clicked, this,
           [&openGLWidget = openGLWidget_, &button = *button](bool) {
             RenderingType type = openGLWidget.getRenderingType();
-            (type == RenderingType::NORMAL) ? button.setText("GPU")
-                                            : button.setText("NORMAL");
-            (type == RenderingType::NORMAL)
-                ? button.setStyleSheet(RenderingTypeBtnGpuStyle)
-                : button.setStyleSheet(RenderingTypeBtnCpuStyle);
-            openGLWidget.setRenderingType(type == RenderingType::NORMAL
-                                              ? RenderingType::GPU
-                                              : RenderingType::NORMAL);
+            (type == RenderingType::DEFAULT) ? button.setText("SHADERS")
+                                             : button.setText("DEFAULT");
+            (type == RenderingType::DEFAULT)
+                ? button.setStyleSheet(RenderingTypeBtnShadersStyle)
+                : button.setStyleSheet(RenderingTypeBtnDefaultStyle);
+            openGLWidget.setRenderingType(type == RenderingType::DEFAULT
+                                              ? RenderingType::SHADERS
+                                              : RenderingType::DEFAULT);
           });
 
   QHBoxLayout *box = new QHBoxLayout;

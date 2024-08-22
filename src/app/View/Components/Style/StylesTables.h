@@ -143,30 +143,30 @@
   "    background-color: #c40c0c;" \
   "}"
 
-#define RenderingTypeBtnCpuStyle    \
-  "QPushButton {"                   \
-  "    border-radius: 10px; "       \
-  "    color: white;"               \
-  "    background-color: #ad1c21;"  \
-  "    font: bold 16px;"            \
-  "    height: 26px;"               \
-  "}"                               \
-                                    \
-  "QPushButton:hover {"             \
-  "    background-color:  #d6181e;" \
+#define RenderingTypeBtnDefaultStyle \
+  "QPushButton {"                    \
+  "    border-radius: 10px; "        \
+  "    color: white;"                \
+  "    background-color: #ad1c21;"   \
+  "    font: bold 16px;"             \
+  "    height: 26px;"                \
+  "}"                                \
+                                     \
+  "QPushButton:hover {"              \
+  "    background-color:  #d6181e;"  \
   "}"
 
-#define RenderingTypeBtnGpuStyle    \
-  "QPushButton {"                   \
-  "    border-radius: 10px; "       \
-  "    color: white;"               \
-  "    background-color: #025ff5;"  \
-  "    font: bold 16px;"            \
-  "    height: 26px;"               \
-  "}"                               \
-                                    \
-  "QPushButton:hover {"             \
-  "    background-color:  #2281f5;" \
+#define RenderingTypeBtnShadersStyle \
+  "QPushButton {"                    \
+  "    border-radius: 10px; "        \
+  "    color: white;"                \
+  "    background-color: #025ff5;"   \
+  "    font: bold 16px;"             \
+  "    height: 26px;"                \
+  "}"                                \
+                                     \
+  "QPushButton:hover {"              \
+  "    background-color:  #2281f5;"  \
   "}"
 
 #endif

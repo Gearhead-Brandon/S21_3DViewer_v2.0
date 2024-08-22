@@ -1,4 +1,4 @@
-#include "GpuRenderStrategy.h"
+#include "ShadersRenderStrategy.h"
 
 #include "../../OpenGLWidget.h"
 
@@ -8,7 +8,7 @@ namespace s21 {
  * @brief The method renders 3D model
  * @param widget The openGL widget
  */
-void GpuRenderStrategy::render(OpenGLWidget &widget) {
+void ShadersRenderStrategy::render(OpenGLWidget &widget) {
   const IResourceProvider &resourceProvider = widget.getResourceProvider();
   const std::vector<float> &vertices = resourceProvider.getVertices();
   if (vertices.empty()) return;
@@ -68,8 +68,8 @@ void GpuRenderStrategy::render(OpenGLWidget &widget) {
  * @param vertices - vertices
  * @return VBO
  */
-GLuint GpuRenderStrategy::createVBO(OpenGLWidget &widget,
-                                    const std::vector<float> &vertices) {
+GLuint ShadersRenderStrategy::createVBO(OpenGLWidget &widget,
+                                        const std::vector<float> &vertices) {
   GLuint VBO = 0;
   widget.glGenBuffers(1, &VBO);
   widget.glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -85,8 +85,8 @@ GLuint GpuRenderStrategy::createVBO(OpenGLWidget &widget,
  * @param resourceProvider - resource provider
  * @return EBO
  */
-GLuint GpuRenderStrategy::createEBO(OpenGLWidget &widget,
-                                    const IResourceProvider &resourceProvider) {
+GLuint ShadersRenderStrategy::createEBO(
+    OpenGLWidget &widget, const IResourceProvider &resourceProvider) {
   GLuint EBO = 0;
   widget.glGenBuffers(1, &EBO);
   widget.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -102,7 +102,7 @@ GLuint GpuRenderStrategy::createEBO(OpenGLWidget &widget,
  * @param widget - openGL widget
  * @return VAO
  */
-GLuint GpuRenderStrategy::createVAO(OpenGLWidget &widget) {
+GLuint ShadersRenderStrategy::createVAO(OpenGLWidget &widget) {
   GLuint VAO = 0;
   widget.glGenVertexArrays(1, &VAO);
   widget.glBindVertexArray(VAO);
@@ -117,7 +117,7 @@ GLuint GpuRenderStrategy::createVAO(OpenGLWidget &widget) {
  * @brief The method draws vertices
  * @param widget - openGL widget
  */
-void GpuRenderStrategy::drawVertices(OpenGLWidget &widget) {
+void ShadersRenderStrategy::drawVertices(OpenGLWidget &widget) {
   const IResourceProvider &resourceProvider = widget.getResourceProvider();
   const SettingsPackage &settings = resourceProvider.getSettingsPackage();
 
@@ -147,7 +147,7 @@ void GpuRenderStrategy::drawVertices(OpenGLWidget &widget) {
  * @brief The method draws axes
  * @param widget - openGL widget
  */
-void GpuRenderStrategy::drawAxes(OpenGLWidget &widget) {
+void ShadersRenderStrategy::drawAxes(OpenGLWidget &widget) {
   std::vector<float> axisVertices = {
       0.0f, 0.0f, 0.0f, 1.5f, 0.0f, 0.0f,  // X
       0.0f, 0.0f, 0.0f, 0.0f, 1.5f, 0.0f,  // Y
@@ -201,7 +201,7 @@ void GpuRenderStrategy::drawAxes(OpenGLWidget &widget) {
  * @param resourceProvider - resource provider
  * @param projection - projection matrix
  */
-void GpuRenderStrategy::setUpProjection(
+void ShadersRenderStrategy::setUpProjection(
     const IResourceProvider &resourceProvider, float *projection) {
   const Point<float> &max = resourceProvider.getMaxPoint();
 
@@ -242,7 +242,7 @@ void GpuRenderStrategy::setUpProjection(
  * @param farPlane - far border
  * @param projectionMatrix - projection matrix
  */
-void GpuRenderStrategy::createOrthographicProjectionMatrix(
+void ShadersRenderStrategy::createOrthographicProjectionMatrix(
     float left, float right, float bottom, float top, float nearPlane,
     float farPlane, float *projectionMatrix) {
   projectionMatrix[0] = 2.0f / (right - left);
@@ -274,7 +274,7 @@ void GpuRenderStrategy::createOrthographicProjectionMatrix(
  * @param farPlane - far border
  * @param projectionMatrix - projection matrix
  */
-void GpuRenderStrategy::createPerspectiveProjectionMatrix(
+void ShadersRenderStrategy::createPerspectiveProjectionMatrix(
     float fov, float aspectRatio, float nearPlane, float farPlane,
     float *projectionMatrix) {
   float f = 1.0f / tan(fov * 0.5f);

@@ -14,10 +14,10 @@ OpenGLWidget::OpenGLWidget(IResourceProvider &resourceProvider)
     : QOpenGLWidget(nullptr),
       resourceProvider_(resourceProvider),
       renderStrategy_(
-          RenderFactory().createRenderStrategy(RenderingType::NORMAL)),
+          RenderFactory().createRenderStrategy(RenderingType::DEFAULT)),
       shaderProgram_(0),
       displayAxes_(Choice::Yes),
-      renderingType_(RenderingType::NORMAL),
+      renderingType_(RenderingType::DEFAULT),
       xRot_(0.0f),
       yRot_(0.0f),
       scaleMouse_(1.0f) {}

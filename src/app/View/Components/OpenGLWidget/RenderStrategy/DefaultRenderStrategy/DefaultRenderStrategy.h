@@ -1,10 +1,10 @@
 /**
- * @file CpuRenderStrategy.h
- * @brief Header file describing the class CpuRenderStrategy
+ * @file DefaultRenderStrategy.h
+ * @brief Header file describing the class DefaultRenderStrategy
  */
 
-#ifndef CPU_RENDER_STRATEGY_H
-#define CPU_RENDER_STRATEGY_H
+#ifndef DEFAULT_RENDER_STRATEGY_H
+#define DEFAULT_RENDER_STRATEGY_H
 
 #include "../IRenderStrategy/IRenderStrategy.h"
 
@@ -17,7 +17,7 @@ class SettingsPackage;
  * @details The class CpuRenderStrategy is implementing the interface
  * IRenderStrategy
  */
-class CpuRenderStrategy : public IRenderStrategy {
+class DefaultRenderStrategy : public IRenderStrategy {
  public:
   /**
    * @brief The method renders 3D model

@@ -7,8 +7,8 @@
 #define RENDER_FACTORY_H
 
 #include "../../Enum/RenderingType.h"
-#include "../CpuRenderStrategy/CpuRenderStrategy.h"
-#include "../GpuRenderStrategy/GpuRenderStrategy.h"
+#include "../DefaultRenderStrategy/DefaultRenderStrategy.h"
+#include "../ShadersRenderStrategy/ShadersRenderStrategy.h"
 
 namespace s21 {
 

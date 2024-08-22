@@ -16,10 +16,10 @@ namespace s21 {
  */
 IRenderStrategy *RenderFactory::createRenderStrategy(RenderingType type) {
   switch (type) {
-    case RenderingType::NORMAL:
-      return new CpuRenderStrategy();
-    case RenderingType::GPU:
-      return new GpuRenderStrategy();
+    case RenderingType::DEFAULT:
+      return new DefaultRenderStrategy();
+    case RenderingType::SHADERS:
+      return new ShadersRenderStrategy();
     default:
       break;
   }
