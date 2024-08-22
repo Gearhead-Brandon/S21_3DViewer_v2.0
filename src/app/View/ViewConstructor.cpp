@@ -261,17 +261,17 @@ void View::createDisplayAxesBox(QGridLayout *grid) {
  */
 void View::createMoveScaleBox(QGridLayout *grid) {
   SliderData data = {-20, 20, 0};
-  QHBoxLayout *xMoveBox = moveScaleBoxFactory("mX", data, AffineOps::Moving,
+  QHBoxLayout *xMoveBox = moveScaleBoxFactory("X", data, AffineOps::Moving,
                                               Axes::X, 0.1, &lastMoveValue_.x);
   grid->addLayout(xMoveBox, 2, 0);
 
   data = {-20, 20, 0};
-  QHBoxLayout *yMoveBox = moveScaleBoxFactory("mY", data, AffineOps::Moving,
+  QHBoxLayout *yMoveBox = moveScaleBoxFactory("Y", data, AffineOps::Moving,
                                               Axes::Y, 0.2, &lastMoveValue_.y);
   grid->addLayout(yMoveBox, 3, 0);
 
   data = {-20, 20, 0};
-  QHBoxLayout *zMoveBox = moveScaleBoxFactory("mZ", data, AffineOps::Moving,
+  QHBoxLayout *zMoveBox = moveScaleBoxFactory("Z", data, AffineOps::Moving,
                                               Axes::Z, 0.1, &lastMoveValue_.z);
   grid->addLayout(zMoveBox, 4, 0);
 
